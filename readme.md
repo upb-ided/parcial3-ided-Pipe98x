@@ -8,9 +8,9 @@ Fundamentos de Programación
 
 Parcial 3
 
-Nombre: (Edite este archivo llenando este dato)
+Nombre: Felipe Bedoya Hincapie
 
-ID: (Edite este archivo llenando este dato)
+ID: 000315612
 
 Fecha: Abril 21 de 2017
 
