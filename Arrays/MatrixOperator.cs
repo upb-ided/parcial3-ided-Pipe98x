@@ -44,8 +44,16 @@ namespace Parcial3_Base
         {
             int[,] result = null;
 
-            if (result != null)
+            if ((matrixA.GetLength(0) == matrixB.GetLength(0)) && (matrixA.GetLength(1) == matrixB.GetLength(1)))
             {
+                result = new int[matrixA.GetLength(0), matrixA.GetLength(1)];
+                for (int i = 0; i < matrixA.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrixA.GetLength(1); j++)
+                    {
+                        result[i, j] = matrixA[i, j] + matrixB[i, j];
+                    }
+                }
                 result.PrintMatrixValues();
             }
 
@@ -60,13 +68,21 @@ namespace Parcial3_Base
         /// <param name="scalar"></param>
         /// <returns>La matriz producto por escalar</returns>
         public int[,] MultiplyMatrixByScalar(int[,] matrix, int scalar)
-        {
-            int[,] result = null;
+        { 
+        
+            int[,] result = new int[matrix.GetLength(0), matrix.GetLength(1)];
 
-            if (result != null)
+
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                result.PrintMatrixValues();
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    result[i, j] = matrix[i, j] * scalar;
+                }
             }
+            result.PrintMatrixValues();
+        
 
             return result;
         }
@@ -82,8 +98,19 @@ namespace Parcial3_Base
         {
             int[,] result = null;
 
-            if (result != null)
+            if (matrixA.GetLength(1) == matrixB.GetLength(0))
             {
+                result = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+                for (int i = 0; i < matrixA.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrixB.GetLength(1); j++)
+                    {
+                        for (int k = 0; k < matrixA.GetLength(1); k++)
+                        {
+                            result[i, j] += ((matrixA[i, k]) * (matrixB[k, j]));
+                        }
+                    }
+                }
                 result.PrintMatrixValues();
             }
 
@@ -111,8 +138,33 @@ namespace Parcial3_Base
 
             int[,] result = null;
 
-            if (result != null)
+            if ((matrixA.GetLength(0) == matrixB.GetLength(0)) && (matrixA.GetLength(1) == matrixB.GetLength(1)))
             {
+                result = new int[matrixA.GetLength(1), matrixB.GetLength(0)];
+
+                for (int i = 0; i < matrixA.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrixB.GetLength(1); j++)
+                    {
+                        if (i == j)
+                        {
+                            result[i, j] = ((matrixA[i, j]) * (matrixB[i, j]));
+                        } else
+                        {
+                            if (i>j)
+                            {
+                                result[i, j] = matrixA[i, j];
+                            } else
+                            {
+                                if (j>i)
+                                {
+                                    result[i, j] = matrixB[i, j];
+                                }
+                            }
+
+                        }
+                    }
+                }
                 result.PrintMatrixValues();
             }
 
